@@ -1,0 +1,11 @@
+{% extends "DiDiStoreApp/index.html" %}
+
+{% block md %}
+    <a class="buy_btn" href="{% url 'detail' j.id %}" id="show_modal_window">Купить</a>
+                    <div class="price_rating">
+                        <span class="price">
+                            <p>{{ j.price }}тг</p>
+                            <i class="fa-solid fa-bag-shopping mini_bag" title="добавить в желаемое"></i>
+                        </span>
+                    </div>
+{% endblock %}
