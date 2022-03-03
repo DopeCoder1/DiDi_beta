@@ -10,11 +10,13 @@
             {% for j in books %}
             <div class="book">
                 <div class="book_img_title">
-                    <img src="{{ j.photo.url }} " width="150px"  alt="faiman" class="book_img">
+                    <img src="{{ j.photo.url }} " height="200px"  alt="faiman" class="book_img">
                     <p class="book_title">{{j.name}}</p>
                 </div>
                 <div class="btn_price_rating">
-                    <a class="buy_btn" href="{% url 'detail' j.id %}" id="show_modal_window">Купить</a>
+                    <a class="dias" href="{% url 'detail' j.id %}">
+                    Купить
+                    </a>
                     <div class="price_rating">
                         <span class="price">
                             <p>{{ j.price }}тг</p>

@@ -1,11 +1,19 @@
 {% extends "DiDiStoreApp/index.html" %}
 
 {% block md %}
-    <a class="buy_btn" href="{% url 'detail' j.id %}" id="show_modal_window">Купить</a>
-                    <div class="price_rating">
-                        <span class="price">
-                            <p>{{ j.price }}тг</p>
-                            <i class="fa-solid fa-bag-shopping mini_bag" title="добавить в желаемое"></i>
-                        </span>
+    <div class="book_img_title">
+                        <img src="{{ bookss.photo.url }}" alt="book" class="mw_book_img">
+                        <p class="mw_book_title">{{ bookss.name }}</p>
+                    </div>
+                    <div class="book_desc">
+                        <h1 class="desc_title">Описание книги</h1>
+                        <p class="desc_text">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
                     </div>
 {% endblock %}

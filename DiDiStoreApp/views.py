@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.views.generic import DetailView
 
 from .models import User
 from DiDiStore import settings
@@ -16,46 +17,6 @@ from .cart import Cart
 
 
 # Create your views here.
-
-def show_book(request, bookid):
-    forms = RegistrationForm(request.POST or None)
-    if forms.is_valid():
-        forms.save()
-        return redirect('home')
-
-
-    books = Book.objects.all()
-    cats = Category.objects.all()
-    bookss = get_object_or_404(Book, id=bookid)
-
-    form = LoginForm()
-    message = ''
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            user = authenticate(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password'],
-            )
-            if user is not None:
-                login(request, user)
-                message = f'Hello {user.username}! You have been logged in'
-                print(message)
-                redirect("cab")
-            else:
-                message = 'Login failed!'
-
-    context = {
-        "form":form,
-        "forms":forms,
-        "cats":cats,
-        "books":books,
-        "bookss": bookss,
-
-    }
-    return render(request, "DiDiStoreApp/index.html", context)
-
-
 def index(request):
     forms = RegistrationForm(request.POST or None)
     if forms.is_valid():
@@ -95,9 +56,12 @@ def index(request):
     return render(request, "DiDiStoreApp/index.html", context)
 
 
-def detail(request):
-    pass
-
+def show_book(request, bookid):
+    bookss = get_object_or_404(Book, id=bookid)
+    context = {
+        "bookss": bookss,
+    }
+    return render(request, "DiDiStoreApp/det.html", context)
 
 def show_category(request, id):
     forms = RegistrationForm(request.POST or None)

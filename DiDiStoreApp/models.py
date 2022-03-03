@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Book(models.Model):
@@ -14,6 +15,7 @@ class Book(models.Model):
     rating = models.IntegerField(default=5,verbose_name="rating")
     published_status = models.IntegerField(default=0, verbose_name="Публиковать?")
     desc = models.TextField(verbose_name="Описание")
+
 
     def __str__(self):
         return self.name
