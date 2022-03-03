@@ -14,9 +14,11 @@
                     <p class="book_title">{{j.name}}</p>
                 </div>
                 <div class="btn_price_rating">
-                    <a class="dias" href="{% url 'detail' j.id %}">
+                    <a class="buy_btn" href="{% url 'detail' j.id %}">
                     Купить
                     </a>
+{#                       <button class="buy_btn" id ="show_modal_window">Купить</button>#}
+
                     <div class="price_rating">
                         <span class="price">
                             <p>{{ j.price }}тг</p>
