@@ -19,7 +19,6 @@ class Cart(object):
         else:
             if self.cart[book_id]['quantity'] < 20:
                 self.cart[book_id]['quantity'] += 1
-
         self.save()
 
     def update(self, book, quantity):
@@ -55,6 +54,9 @@ class Cart(object):
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+
+    def get_total_price2(self):
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
     def clear(self):

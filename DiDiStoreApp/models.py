@@ -14,7 +14,7 @@ class Book(models.Model):
     updated_at = models.DateTimeField(auto_now=True,verbose_name="Последний изм.")
     rating = models.IntegerField(default=5,verbose_name="rating")
     published_status = models.IntegerField(default=0, verbose_name="Публиковать?")
-    desc = models.TextField(verbose_name="Описание")
+    desc = models.TextField(verbose_name"Описание")
 
 
     def __str__(self):

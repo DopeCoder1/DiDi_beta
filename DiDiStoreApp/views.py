@@ -127,6 +127,11 @@ def cart_remove(request, bookid):
     return redirect('cart_details')
 
 
+# def summmary(request):
+#     cart = Cart(request)
+#     cart.get_total_price(cart)
+#     return redirect('home')
+
 def cart_details(request):
     cart = Cart(request)
     context = {
@@ -135,9 +140,11 @@ def cart_details(request):
     return render(request, 'DiDiStoreApp/desired.html', context)
 
 
+
 def my_cab(request):
     return render(request, "DiDiStoreApp/account.html")
 
 
 def LogoutUser(request):
     logout(request)
+    redirect("home")

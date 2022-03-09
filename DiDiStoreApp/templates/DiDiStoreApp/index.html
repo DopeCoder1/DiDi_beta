@@ -18,11 +18,10 @@
                     Купить
                     </a>
 {#                       <button class="buy_btn" id ="show_modal_window">Купить</button>#}
-
                     <div class="price_rating">
                         <span class="price">
                             <p>{{ j.price }}тг</p>
-                            <i class="fa-solid fa-bag-shopping mini_bag" title="добавить в желаемое"></i>
+                            <a href="{% url 'cart_add' j.id %}"><i class="fa-solid fa-bag-shopping mini_bag" title="добавить в желаемое"></i></a>
                         </span>
                     </div>
                 </div>
